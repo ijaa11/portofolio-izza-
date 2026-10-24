@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profil | izza afzal murtaza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6EEF0;
+    --ink: #2B0F1A;
+    --muted: #6B4C58;
+    --teal: #b01818;
+    --sun: #FFD23F;
+    --card: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Figtree", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    --x: 30%; --y: 20%;
+    position: relative;
+  }
+  /* Background gradient yang mengikuti sentuhan/kursor */
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(circle 420px at var(--x) var(--y), rgba(176,24,24,.35), transparent 70%),
+      radial-gradient(circle 320px at calc(100% - var(--x)) calc(100% - var(--y)), rgba(255,210,63,.50), transparent 70%);
+  }
+  a { color: var(--teal); }
+  a:focus-visible, .btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+  header.nav {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1040px; margin: 0 auto; padding: 20px 24px;
+  }
+  .nav strong { font-family: "Bricolage Grotesque", sans-serif; font-size: 1.1rem; }
+  .nav a { margin-left: 20px; text-decoration: none; color: var(--ink); font-weight: 500; }
+  .nav a:hover { color: var(--teal); }
+
+  main { max-width: 1040px; margin: 0 auto; padding: 24px; }
+
+  /* Hero: nama besar + kartu mahasiswa */
+  .hero {
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center;
+    padding: 48px 0 72px;
+  }
+  .hero h1 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800; font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 1.02; letter-spacing: -0.02em;
+  }
+  .hero .role { margin-top: 16px; font-size: 1.2rem; color: var(--muted); max-width: 34ch; }
+  .actions { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 12px 22px; border-radius: 999px;
+    font-weight: 600; text-decoration: none; border: 2px solid var(--ink);
+  }
+  .btn.primary { background: var(--ink); color: #fff; }
+  .btn.primary:hover { background: var(--teal); border-color: var(--teal); }
+  .btn.ghost { color: var(--ink); }
+  .btn.ghost:hover { background: var(--sun); }
+
+  .idcard {
+    background: var(--card); border: 2px solid var(--ink); border-radius: 20px;
+    box-shadow: 8px 8px 0 var(--ink); overflow: hidden;
+  }
+  .idcard .top { background: var(--teal); color: #fff; padding: 12px 20px; font-weight: 600; font-size: .95rem; }
+  .idcard .body { padding: 24px 20px; display: flex; gap: 18px; align-items: center; }
+  /* Ganti blok .photo dengan <img src="foto.jpg" alt="Foto ..."> kalau sudah ada fotonya */
+  .photo {
+    flex: none; width: 96px; height: 120px; border-radius: 10px; background: var(--sun);
+    display: grid; place-items: center; font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800; font-size: 2rem; border: 2px solid var(--ink);
+  }
+  .idcard img.photo { object-fit: cover; }
+  .idcard dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: .95rem; }
+  .idcard dt { color: var(--muted); }
+  .idcard dd { font-weight: 600; }
+
+  section { padding: 24px 0 64px; }
+  h2 { font-family: "Bricolage Grotesque", sans-serif; font-size: 1.9rem; margin-bottom: 20px; }
+  .about { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .about p { max-width: 62ch; color: var(--muted); }
+  .about p + p { margin-top: 14px; }
+  .facts { list-style: none; border-left: 4px solid var(--sun); padding-left: 20px; }
+  .facts li { padding: 8px 0; }
+  .facts b { display: block; }
+
+  .contact { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  footer { text-align: center; padding: 32px 24px 48px; color: var(--muted); font-size: .9rem; }
+
+  @media (max-width: 760px) {
+    .hero, .about { grid-template-columns: 1fr; gap: 32px; }
+    .hero { padding-top: 24px; }
+    .nav a { margin-left: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <strong>Portofolio</strong>
+  <nav>
+    <a href="#profil">instagram</a>
+    <a href="#tentang">Tentang</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ====== PROFIL ====== -->
+  <div class="hero" id="profil">
+    <div>
+      <h1>IZZA AFZAL MURTAZA</h1>
+      <p class="role">Halo! ,Semua saya Mahasiswa Teknik Informatika yang suka belajar membuat aplikasi dan website.</p>
+      <div class="actions">
+        <a class="btn primary" href="#kontak">Hubungi saya</a>
+        <a class="btn ghost" href="#tentang">Kenalan dulu</a>
+      </div>
+    </div>
+
+    <aside class="idcard" aria-label="Data singkat">
+      <div class="top">Kartu Profil</div>
+      <div class="body">
+        <img class="photo" src="foto latar merah asli.jpeg" alt="izza">
+        <dl>
+          <dt>NIM</dt><dd>26051204257</dd>
+          <dt>Prodi</dt><dd>Teknik Informatika</dd>
+          <dt>Kampus</dt><dd>Universitas Negeri Surabaya</dd>
+          <dt>Angkatan</dt><dd>2026</dd>
+        </dl>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ====== TENTANG ====== -->
+  <section id="tentang">
+    <h2>Tentang saya</h2>
+    <div class="about">
+      <div>
+        <p>Halo, Saya Izza Afzal Murtaza , saya berasal dari SMK Negeri 1 palangkaraya yang dulu berfokus pada Rekayasa Perangkat lunak</p>
+        <p>Lewat portofolio ini saya ingin menunjukkan perjalanan belajar saya, mulai dari profil, pengalaman, kemampuan, sampai project yang pernah dibuat.</p>
+      </div>
+      <ul class="facts">
+        <li><b>Asal</b>Palangkaraya, Kalimantan Tengah</li>
+        <li><b>Minat</b>Pengembangan web, desain antarmuka</li>
+        <li><b>Sedang dipelajari</b>HTML, CSS, C++</li>
+        <li><b>Hobi</b>Isi dengan hobimu</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ====== KONTAK ====== -->
+  <section id="kontak">
+    <h2>Kontak</h2>
+    <div class="contact">
+      <a class="btn ghost" href="mailto:izzamurtaza48@gmail.com">izzamurtaza48@gmail.com</a>
+      <a class="btn ghost" href="https://github.com/ijaa11" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/izza-afzal-murtaza" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://www.instagram.com/ijaaafzl_?psln=eGQ1dGpwdWRtd3E=" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </section>
+</main>
+
+<footer>&copy; 2026 Izza Gledek Unggerr</footer>
+
+<script>
+  // Gradient mengikuti jari/kursor dengan gerakan halus
+  (function () {
+    var root = document.body;
+    var tx = window.innerWidth * 0.3, ty = window.innerHeight * 0.2; // target
+    var cx = tx, cy = ty;                                            // posisi sekarang
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function setTarget(e) {
+      var p = e.touches ? e.touches[0] : e;
+      tx = p.clientX; ty = p.clientY;
+      if (reduce) { cx = tx; cy = ty; paint(); }
+    }
+    function paint() {
+      root.style.setProperty("--x", cx + "px");
+      root.style.setProperty("--y", cy + "px");
+    }
+    function loop() {
+      cx += (tx - cx) * 0.08;
+      cy += (ty - cy) * 0.08;
+      paint();
+      requestAnimationFrame(loop);
+    }
+
+    window.addEventListener("pointermove", setTarget, { passive: true });
+    window.addEventListener("pointerdown", setTarget, { passive: true });
+    window.addEventListener("touchmove", setTarget, { passive: true });
+    if (!reduce) loop(); else paint();
+  })();
+</script>
+</body>
+</html>
